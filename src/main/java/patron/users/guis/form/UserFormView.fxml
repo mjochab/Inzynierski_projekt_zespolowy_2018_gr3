@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="7.0" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox spacing="7.0">
+         <children>
+            <GridPane hgap="7.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" />
+                <ColumnConstraints hgrow="SOMETIMES" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="%view.label.login" />
+                  <TextField fx:id="loginField" focusTraversable="false" GridPane.columnIndex="1" />
+                  <Label text="%view.label.password" GridPane.rowIndex="1" />
+                  <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+         </children>
+      </HBox>
+      <TitledPane animated="false" collapsible="false" focusTraversable="false" maxHeight="1.7976931348623157E308" text="%view.title_pane.title.options" VBox.vgrow="ALWAYS">
+         <content>
+            <VBox>
+               <children>
+                  <TabPane focusTraversable="false" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+                    <tabs>
+                      <Tab closable="false" text="%view.tab_pane.tab.title.roles">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0">
+                                 <children>
+                                    <VBox spacing="7.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <CheckBox fx:id="rolesClientModuleCheckbox" focusTraversable="false" mnemonicParsing="false" text="%view.checkbox.roles.client" />
+                                          <CheckBox fx:id="rolesAgentModuleCheckbox" focusTraversable="false" mnemonicParsing="false" text="%view.checkbox.roles.agent" />
+                                          <CheckBox fx:id="rolesAdminModuleCheckbox" focusTraversable="false" mnemonicParsing="false" text="%view.checkbox.roles.admin" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </VBox>
+         </content>
+      </TitledPane>
+   </children>
+</VBox>
