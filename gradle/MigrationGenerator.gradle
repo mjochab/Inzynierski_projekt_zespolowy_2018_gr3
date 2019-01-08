@@ -1,0 +1,38 @@
+/****************************************************************************
+ ***************************** IMPLEMENTATION *******************************
+ 1. Apply this file to `build.gradle` by:
+ apply from: 'gradle/MigrationGenerator.gradle'
+
+ 2. Configuration Migration Generator in below defined 'migrationConfig'
+
+ 2. Generate migration by task 'generateMigration'
+ ****************************************************************************/
+
+// Configuration
+def migrationConfig = [
+        migrationsDir : "${projectDir}/src/main/java/patron/mains/managers/database/migrations",
+        packagesToScan: "patron;com.appscharles.libs.logger"
+]
+
+//Define tasks
+task generateMigration(type: JavaExec, group: 'project') {
+    systemProperties = System.getProperties()
+    main = 'com.appscharles.libs.databaser.projects.MigrationGenerateProject'
+    classpath = sourceSets.main.runtimeClasspath
+    System.setProperty('migration_generate_packages_to_scan', migrationConfig.packagesToScan)
+    System.setProperty('migration_generate_migrations_dir', migrationConfig.migrationsDir)
+    systemProperties = System.getProperties()
+}
+
+task generateMigrationForMysql(type: JavaExec, group: 'project') {
+    systemProperties = System.getProperties()
+    main = 'com.appscharles.libs.databaser.projects.MysqlMigrationGenerateProject'
+    classpath = sourceSets.main.runtimeClasspath
+    System.setProperty('migration_generate_migrations.db_host', "localhost")
+    System.setProperty('migration_generate_migrations.db_name', "db_generator")
+    System.setProperty('migration_generate_migrations.db_user', "root")
+    System.setProperty('migration_generate_migrations.db_pass', "root")
+    System.setProperty('migration_generate_packages_to_scan', migrationConfig.packagesToScan)
+    System.setProperty('migration_generate_migrations_dir', migrationConfig.migrationsDir)
+    systemProperties = System.getProperties()
+}

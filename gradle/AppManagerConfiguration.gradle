@@ -1,0 +1,32 @@
+/****************************************************************************
+ ***************************** IMPLEMENTATION *******************************
+ - Configuration App Manager Configuration in below defined 'AppManagerConfigurationConfig'
+ ****************************************************************************/
+
+// Configuration
+def appManagerConfigurationConfig = [
+        dataFile: "${projectDir}/src/main/java/patron/mains/managers/app/AppManagerConfiguration.properties",
+        displayName: "Patron",
+        saltPassword: "w2dhw23y5#6#",
+        executableFileName: "Patron.jar",
+        databasePort: "3306"
+]
+
+
+// Business AppManagerConfiguration
+if (File.newInstance(appManagerConfigurationConfig.dataFile).getParentFile().exists() == false){
+    File.newInstance(appManagerConfigurationConfig.dataFile).getParentFile().mkdirs()
+}
+if (File.newInstance(appManagerConfigurationConfig.dataFile).exists()){
+    File.newInstance(appManagerConfigurationConfig.dataFile).delete()
+}
+OutputStream output =  new FileOutputStream(appManagerConfigurationConfig.dataFile)
+Properties properties = Properties.newInstance()
+properties.setProperty("version", project.version)
+properties.setProperty("name", project.name)
+properties.setProperty("displayName", appManagerConfigurationConfig.displayName)
+properties.setProperty("saltPassword", appManagerConfigurationConfig.saltPassword)
+properties.setProperty("executableFileName", appManagerConfigurationConfig.executableFileName)
+properties.setProperty("databasePort", appManagerConfigurationConfig.databasePort)
+properties.store(output, null)
+output.close()
