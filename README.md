@@ -43,3 +43,9 @@ Klient w aplikacji po poprawnym zalogowaniu ma możliwość przejrzenia dostępn
 
 
 **Diagram przypadków użycia** ![diagram1](https://i.imgur.com/oNqJFPP.png)
+
+**Diagram aktywności** ![diagram2](https://imgur.com/iOiEn95.png)
+
+**Diagram sekwencji** ![diagram3](https://imgur.com/40jS2BW.png)
+
+**Diagram klas** ![diagram4](https://imgur.com/Ibti9BB.png)
