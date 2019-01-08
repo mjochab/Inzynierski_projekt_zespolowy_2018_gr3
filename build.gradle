@@ -1,0 +1,124 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "gradle.plugin.de.inetsoftware:SetupBuilder:4.8.5"
+    }
+}
+
+plugins {
+    id 'java'
+    id 'edu.sc.seis.launch4j' version '2.4.4'
+}
+
+apply plugin: "de.inetsoftware.setupbuilder"
+
+group 'patron'
+version '1.0.0.0'
+
+sourceCompatibility = 1.8
+
+apply from: 'gradle/UTF8Encoder.gradle'
+apply from: 'gradle/SourceSetter.gradle'
+apply from: 'gradle/AppManagerConfiguration.gradle'
+apply from: 'gradle/MigrationGenerator.gradle'
+apply from: 'gradle/TestsConfiguration.gradle'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven {
+        url 'http://dl.bintray.com/appscharles/libs'
+    }
+
+
+}
+
+def applicationDeployerConfig = [
+        executableFileName: "Patron.jar",
+        deployDir: "${projectDir}/build/deploy",
+        mainClass: "patron.mains.bootstraps.Bootstrap",
+        implementationTitle: "Patron",
+        librariesSubDir: "Libraries"
+]
+
+dependencies {
+    compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.13'
+    compile fileTree(dir: 'gradle/libs', include: '*.jar')
+    compile group: 'org.jsoup', name: 'jsoup', version: '1.11.3'
+    compile group: 'org.glassfish.jaxb', name: 'jaxb-core', version: '2.3.0.1'
+    compile group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.4.0-b180725.0644'
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.4.0-b180725.0427'
+    compile group: 'com.appscharles.libs', name: 'ioer', version: '1.0.0.1'
+    compile group: 'com.appscharles.libs', name: 'proper', version: '1.0.0.0-dev2'
+    compile group: 'com.appscharles.libs', name: 'dialoger', version: '1.0.0.0-dev15'
+    compile group: 'com.appscharles.libs', name: 'fxer', version: '1.0.0.1'
+    compile('com.appscharles.libs:databaser:1.0.0.0-dev30')
+    compile group: 'com.appscharles.libs', name: 'aller', version: '1.0.0.1'
+    compile group: 'com.appscharles.libs', name: 'logger', version: '1.0.0.0-dev25'
+    compile group: 'com.appscharles.libs', name: 'processer', version: '1.0.0.0-dev4'
+    //compile files('E:\\others\\scenicView.jar')
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.3.1'
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.3.1'
+}
+
+
+
+// Deploy application
+task copyRuntimeLibs(type: Copy) {
+    into "$applicationDeployerConfig.deployDir/$applicationDeployerConfig.librariesSubDir"
+    from configurations.compile
+}
+
+task deleteOutDirectory(type: Delete) {
+    delete "${projectDir}/out"
+}
+
+task deleteBuildDirectory(type: Delete) {
+    delete "${projectDir}/build"
+}
+
+task buildDeploy(type: Jar,dependsOn: ['deleteOutDirectory','clean', 'assemble', 'build','copyRuntimeLibs'], group:'build'){
+    outputs.upToDateWhen { false }
+    clean.shouldRunAfter deleteOutDirectory
+    assemble.shouldRunAfter clean
+    build.shouldRunAfter assemble
+    copyRuntimeLibs.shouldRunAfter build
+    buildDeploy.shouldRunAfter copyRuntimeLibs
+    manifest {
+        attributes 'Implementation-Title': applicationDeployerConfig.implementationTitle,
+                'Implementation-Version': version,
+                'Main-Class': applicationDeployerConfig.mainClass,
+                'Class-Path': configurations.runtime.files.collect { "$applicationDeployerConfig.librariesSubDir/$it.name" }.join(' ')
+    }
+    destinationDir = file(applicationDeployerConfig.deployDir)
+    archiveName = applicationDeployerConfig.executableFileName
+    with jar
+}
+
+launch4j {
+    outfile = 'Patron.exe'
+    mainClassName =applicationDeployerConfig.mainClass
+    icon = "${projectDir}/appIcon.ico"
+}
+
+setupBuilder {
+    vendor = project.name
+    application = applicationDeployerConfig.implementationTitle
+    appIdentifier = project.name
+    version = project.version
+    icons = ["${projectDir}/appIcon.ico"]
+    bundleJre = 1.8
+}
+
+msi {
+    languages = ['pl-pl']
+    from('build/launch4j')
+}
+
+task generateMsi(dependsOn: ['msi'], group:'project'){
+    outputs.upToDateWhen { false }
+}
