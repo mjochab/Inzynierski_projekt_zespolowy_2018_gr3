@@ -49,4 +49,4 @@ Klient w aplikacji po poprawnym zalogowaniu ma możliwość przejrzenia dostępn
 
 **Diagram sekwencji** ![diagram3](https://imgur.com/40jS2BW.png)
 
-**Diagram klas** ![diagram4](https://imgur.com/a/9Jdo3Bv)
+**Diagram klas** ![diagram4](https://i.imgur.com/bQ5STKv.png)
