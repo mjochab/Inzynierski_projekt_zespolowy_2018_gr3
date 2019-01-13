@@ -4,6 +4,7 @@
 
 
 
+
 **Opis uprawnień:**
 
 **Administrator:**
@@ -30,10 +31,10 @@ Klient w aplikacji po poprawnym zalogowaniu ma możliwość przejrzenia dostępn
 **JavaFX** - rozszerza potencjał platformy Java, pozwalając programistom na używanie bibliotek środowiska Java w aplikacjach JavaFX. W ten sposób programiści mogą poszerzyć swoje możliwości względem platformy Java i skorzystać z technologii prezentacji, jaką oferuje JavaFX, umożliwiając konstruowanie środowisk o atrakcyjnej szacie graficznej. Użytkownicy mogą uruchamiać aplikacje JavaFX w przeglądarce lub przeciągać je na pulpit. Umożliwia programistom integrację grafiki wektorowej, animacji, sieciowych zasobów dźwiękowych oraz wideo w procesie tworzenia bogatych, interaktywnych i złożonych aplikacji. Rozszerza technologię Java, umożliwiając korzystanie z dowolnej biblioteki Java w aplikacjach JavaFX.
 
 
-**Gradle** -  jest narzędziem służącym do budowania projektów. Umożliwia pisanie skryptów. Gradle pozwala na tworzenie zależności między zadaniami (taskami).
+**Gradle** - jest narzędziem służącym do budowania projektów. Umożliwia pisanie skryptów. Gradle pozwala na tworzenie zależności między zadaniami (taskami).
 
 
-**Hibernate** jest open sourcowym projektem, którego celem było stworzenie nowego podejścia do łączenia się z bazą danych oraz wykonywania na niej operacji minimalizując tym samym ilość pisanego kodu. Szeroki wachlarz jego możliwości sprawia, że jest on bardzo często wykorzystywany w dużych aplikacjach webowych opartych na relacyjnych bazach danych (SQL), w których możemy w pełni wykorzystać potencjał tego frameworka. Najbardziej charakterystyczną cechą, dzięki której Hibernate zyskuje cały czas na popularności jest wykorzystywany przez niego standard JPA, czyli model mapowania obiektowo-relacyjnego.
+**Hibernate** - jest open sourcowym projektem, którego celem było stworzenie nowego podejścia do łączenia się z bazą danych oraz wykonywania na niej operacji minimalizując tym samym ilość pisanego kodu. Szeroki wachlarz jego możliwości sprawia, że jest on bardzo często wykorzystywany w dużych aplikacjach webowych opartych na relacyjnych bazach danych (SQL), w których możemy w pełni wykorzystać potencjał tego frameworka. Najbardziej charakterystyczną cechą, dzięki której Hibernate zyskuje cały czas na popularności jest wykorzystywany przez niego standard JPA, czyli model mapowania obiektowo-relacyjnego.
 
 
 **MySQL** – Oprogramowanie bazodanowe typu open source. Jest ono dostępne bezpłatnie na licencji GPL, dzięki czemu mamy wolność do uruchamiania aplikacji w dowolnym celu, analizowania jej i dostosowywania do własnych potrzeb, a także do rozpowszechniania. Serwer MySQL dostępny jest dla wszystkich popularnych platform systemowych i różnorakich architektur procesorów. 
@@ -48,4 +49,4 @@ Klient w aplikacji po poprawnym zalogowaniu ma możliwość przejrzenia dostępn
 
 **Diagram sekwencji** ![diagram3](https://imgur.com/40jS2BW.png)
 
-**Diagram klas** ![diagram4](https://imgur.com/Ibti9BB.png)
+**Diagram klas** ![diagram4](https://imgur.com/a/Ewf725K)
