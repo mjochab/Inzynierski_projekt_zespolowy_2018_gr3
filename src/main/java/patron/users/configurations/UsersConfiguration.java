@@ -24,6 +24,6 @@ public class UsersConfiguration {
      * @return the string
      */
     public static String getTaskId(){
-        return TASK_ID; 
+        return TASK_ID;
     }
 }

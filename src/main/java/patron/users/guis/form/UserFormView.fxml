@@ -51,6 +51,8 @@
                                        <children>
                                           <CheckBox fx:id="rolesClientModuleCheckbox" focusTraversable="false" mnemonicParsing="false" text="%view.checkbox.roles.client" />
                                           <CheckBox fx:id="rolesAgentModuleCheckbox" focusTraversable="false" mnemonicParsing="false" text="%view.checkbox.roles.agent" />
+                                          <CheckBox fx:id="rolesTravelAgencyModuleCheckbox" focusTraversable="false" mnemonicParsing="false" text="%view.checkbox.roles.travel_agency" />
+                                          <CheckBox fx:id="rolesAviationCompanyModuleCheckbox" focusTraversable="false" mnemonicParsing="false" text="%view.checkbox.roles.aviation_company" />
                                           <CheckBox fx:id="rolesAdminModuleCheckbox" focusTraversable="false" mnemonicParsing="false" text="%view.checkbox.roles.admin" />
                                        </children>
                                        <padding>
