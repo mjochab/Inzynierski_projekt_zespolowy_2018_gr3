@@ -120,7 +120,7 @@ public class Ticket extends BaseModel {
     public Double getPrice() {
         return price;
     }
-
+    //
     /**
      * Sets price.
      *
@@ -183,7 +183,7 @@ public class Ticket extends BaseModel {
     public void setCreatedBy(User createdBy) {
         this.createdBy = createdBy;
     }
-
+    //
     /**
      * Gets reserved by.
      *
