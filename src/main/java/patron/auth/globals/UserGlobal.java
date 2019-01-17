@@ -7,6 +7,8 @@ import patron.users.models.User;
  */
 public class UserGlobal {
 
+    public static boolean isReAuth = false;
+
     private static User user;
 
     /**
