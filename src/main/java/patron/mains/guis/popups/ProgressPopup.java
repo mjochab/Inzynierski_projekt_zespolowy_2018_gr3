@@ -25,7 +25,7 @@ public class ProgressPopup {
             AsyncProgressBuilder asyncProgressBuilder = AsyncProgressBuilder.create(statusProgressAsynchable, title, statusLabel, async, inFxThreadAsyncCompleted);
             asyncProgressBuilder.progressStage(progressStage -> {
                 progressStage.setResourceIcon(AppManager.getResourceIcon());
-                progressStage.getStylesheets().add("com/appscharles/libs/fxer/guis/commons/styles/Root.css");
+                progressStage.getStylesheets().add("patron/mains/guis/main/style.css");
                 progressStage.getStylesheets().add("com/appscharles/libs/fxer/guis/commons/styles/Buttons.css");
             });
             asyncProgressBuilder.build().showFx();

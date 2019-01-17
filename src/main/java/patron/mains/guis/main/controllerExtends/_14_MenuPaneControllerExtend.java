@@ -8,7 +8,7 @@ import javafx.scene.layout.StackPane;
 /**
  * The type 14 menu pane controller extend.
  */
-public class _14_MenuPaneControllerExtend extends _10_ContainerPaneControllerExtend {
+public class _14_MenuPaneControllerExtend extends _12_TaskerPaneControllerExtend {
 
     /**
      * The Menu pane.

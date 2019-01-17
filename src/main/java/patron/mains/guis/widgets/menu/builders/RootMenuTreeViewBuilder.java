@@ -9,6 +9,7 @@ import patron.auth.globals.UserGlobal;
 import patron.events.enums.EventType;
 import patron.events.factories.EventViewFactory;
 import patron.mains.guis.popups.CommonPopup;
+import patron.mains.guis.popups.LogsPopup;
 import patron.pp.guis.show.PPViewFactory;
 import patron.tickets.enums.TicketType;
 import patron.tickets.factories.TicketViewFactory;
@@ -102,7 +103,7 @@ public class RootMenuTreeViewBuilder {
         }));
         TreeItem<MenuItemTreeView> itemLogs = new TreeItem<>(new MenuItemTreeView(this.resourceBundle.getString("view.tree_view.label.logs"), "/patron/mains/guis/widgets/menu/images/LogsIcon.png", () -> {
             ExceptionDialogThrowSneaker.sneaky(() -> {
-
+                LogsPopup.showAndWaitFx();
             });
         }));
         TreeItem<MenuItemTreeView> itemUsers = new TreeItem<>(new MenuItemTreeView(this.resourceBundle.getString("view.tree_view.label.users"), "/patron/mains/guis/widgets/menu/images/UsersIcon.png", () -> {

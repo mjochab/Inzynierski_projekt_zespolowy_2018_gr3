@@ -20,7 +20,7 @@ public class MainStage {
         IFXStageFactory stageFactory = new FXStageFactory("/patron/mains/guis/main/MainView.fxml",
                 "patron/mains/guis/main/translations/Main");
         stageFactory.setIcon(AppManager.getResourceIcon());
-        stageFactory.addStylesheet("com/appscharles/libs/fxer/guis/commons/styles/Root.css");
+        stageFactory.addStylesheet("patron/mains/guis/main/style.css");
         stageFactory.setController(new MainController());
         FXStage stage = stageFactory.create();
         stage.setOpacity(0);

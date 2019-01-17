@@ -11,8 +11,10 @@ import com.appscharles.libs.proper.exceptions.ProperException;
 import com.sun.javafx.application.PlatformImpl;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
+import jdk.nashorn.internal.objects.Global;
 import org.apache.logging.log4j.Level;
 import patron.auth.configurations.DefaultAdminConfiguration;
+import patron.auth.globals.UserGlobal;
 import patron.auth.guis.login.LoginViewFactory;
 import patron.mains.guis.popups.CommonPopup;
 import patron.mains.managers.app.AppManager;
@@ -55,8 +57,7 @@ public class BootstrapConfigurator {
             System.exit(0);
         }
         DatabaseManager.init();
-        DefaultAdminConfiguration.init();
-        CommonPopup.showAndWaitFx(new LoginViewFactory());
+
 //        Event ticket = new Event("Title", "Description", 23.33, false, EventType.FLIGHT, UserGlobal.getUser());
 //        DBOperator.save(ticket);
 //        DBOperator.save(UserGlobal.getUser());

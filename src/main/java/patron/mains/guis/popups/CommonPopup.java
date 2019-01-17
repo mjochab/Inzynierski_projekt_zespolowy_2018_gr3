@@ -33,7 +33,7 @@ public class CommonPopup {
     private static PopupStage newPopupStage(IPrepareViewFactory prepareViewFactory, Boolean withWait) {
         return new PopupStage(prepareViewFactory)
                 .setResourceIcon(AppManager.getResourceIcon())
-                .addStylesheet("com/appscharles/libs/fxer/guis/commons/styles/Root.css")
+                .addStylesheet("patron/mains/guis/main/style.css")
                 .setWithWait(withWait);
     }
 
